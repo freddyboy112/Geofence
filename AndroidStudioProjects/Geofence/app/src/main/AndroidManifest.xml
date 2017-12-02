@@ -12,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_api_key" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -25,9 +29,10 @@
 
         <service
             android:name=".ReceiveGeoFenceTransitionService"
-            android:exported="false"></service>
+            android:exported="false" />
 
-        <activity android:name=".AddGeofence"></activity>
+        <activity android:name=".AddGeofence" />
+        <activity android:name=".DistanceToLocationActivity"></activity>
     </application>
 
 </manifest>

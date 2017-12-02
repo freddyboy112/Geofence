@@ -28,7 +28,6 @@ public class ReceiveGeoFenceTransitionService extends IntentService {
     public ReceiveGeoFenceTransitionService() {
         super("ReceiveGeoFenceTransitionService");
     }
-
     @Override
     protected void onHandleIntent(Intent intent) {
         GeofencingEvent event = GeofencingEvent.fromIntent(intent);
@@ -39,16 +38,15 @@ public class ReceiveGeoFenceTransitionService extends IntentService {
             int transition = event.getGeofenceTransition();
 
             if (transition == Geofence.GEOFENCE_TRANSITION_ENTER) {
-
-
-                // Send a notification, when clicked, open website
-                String url = "https://www.google.dk";
-                Intent notificationIntent = new Intent();
-                notificationIntent.setData(Uri.parse(url));
-
-                PendingIntent contentIntent = PendingIntent.getActivity(this.getApplicationContext(), 0, notificationIntent, 0);
-
                 Bundle extras = intent.getExtras();
+
+                // Create notification intent
+                Intent notificationIntent = new Intent(this, DistanceToLocationActivity.class);
+                notificationIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                notificationIntent.putExtra("lat", extras.getDouble("lat"));
+                notificationIntent.putExtra("long", extras.getDouble("long"));
+
+                PendingIntent contentIntent = PendingIntent.getActivity(this.getApplicationContext(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
                 Notification notification = new NotificationCompat.Builder(this.getApplicationContext(), CHANNEL_ID)
                         .setContentTitle("You are near " + extras.getString("location"))
@@ -59,6 +57,7 @@ public class ReceiveGeoFenceTransitionService extends IntentService {
                         .setSmallIcon(R.drawable.common_google_signin_btn_icon_dark)
                         .build();
 
+                notification.flags |= Notification.FLAG_AUTO_CANCEL;
                 Log.d(MainActivity.TAG, "Notification created");
 
                 NotificationManagerCompat manager = NotificationManagerCompat.from(getApplicationContext());
@@ -67,9 +66,9 @@ public class ReceiveGeoFenceTransitionService extends IntentService {
                 Log.d(MainActivity.TAG, "Notified!");
 
             } else {
-                System.out.println("test this");
                 // TODO: Handle invalid transition
             }
         }
     }
+
 }

@@ -7,4 +7,5 @@
     <string name="geofence_transition_dwelt">Dwelt</string>
     <string name="geofence_transition_notification_title">%1$s geofence</string>
     <string name="geofence_transition_unknown">Unknown transition</string>
+    <string name="google_api_key">AIzaSyBdYYl-pHmsWwFduKsa2ZlRPpeQkLF37mI</string>
 </resources>

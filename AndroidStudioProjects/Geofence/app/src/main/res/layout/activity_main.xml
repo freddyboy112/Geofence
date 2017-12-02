@@ -4,57 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dk.au.cs.is2017.banegaardfence.MainActivity">
+    tools:context="dk.au.cs.is2017.banegaardfence.MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
-        android:layout_marginTop="125dp"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.241" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
+        android:layout_marginEnd="2dp"
+        android:text="Hello World!"
         app:layout_constraintBottom_toTopOf="@+id/listView"
-        app:layout_constraintEnd_toStartOf="@+id/editText3"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="162dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="215dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="204dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="162dp"
+        android:layout_marginBottom="35dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="42dp"
         android:onClick="AddNewGeofenceActivity"
         android:text="AddNewGeofence"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,12 +36,12 @@
         android:id="@+id/listView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </android.support.constraint.ConstraintLayout>
